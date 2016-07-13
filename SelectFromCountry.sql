@@ -52,5 +52,12 @@ ELSE continent END
 FROM world
 WHERE name LIKE 'B%' OR name LIKE 'A%'
 
-
+SELECT name, continent, CASE
+WHEN continent = 'Oceania' THEN 'Australasia'
+WHEN continent = 'Eurasia' THEN 'Europe/Asia'
+WHEN continent = 'Caribbean' AND name LIKE 'B%' THEN 'North America'
+WHEN continent = 'Caribbean' THEN 'South America'
+ELSE continent END
+FROM world
+ORDER BY name;
 
